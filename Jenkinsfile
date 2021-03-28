@@ -4,7 +4,7 @@ pipeline {
     stages {
        stage('Preparation') {    //指定Stage名称Preparation
             steps {
-               checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/roger-perper/springboot-demo.git']]])   //Git的Checkout操作，拉去最新的代码
+               checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github-aebca8-9jr65', url: 'https://github.com/roger-perper/springboot-demo.git']]])   //Git的Checkout操作，拉去最新的代码
 			   echo "代码检出完成"
             }
         }
