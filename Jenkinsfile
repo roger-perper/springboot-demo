@@ -1,15 +1,12 @@
 pipeline {
 
-
-    agent none     //不指定Agent，后续每个Stage再指定
-      stage ('Checkout Scm') {
-        steps {
-            script{
-            	abortBuildTrigger()
+    stages {
+       stage('Preparation') {    //指定Stage名称Preparation
+            steps {
+               checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/roger-perper/springboot-demo.git']]])   //Git的Checkout操作，拉去最新的代码
+			   echo "代码检出完成"
             }
-            checkout(scm)
         }
-    }
         
         
 		stage('Build') {      //指定Stage名称Build
