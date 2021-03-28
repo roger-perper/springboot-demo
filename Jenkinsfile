@@ -1,3 +1,4 @@
+def call(params) {
 pipeline {
 
     stages {
@@ -20,3 +21,5 @@ pipeline {
         
 
     }
+}
+return this
